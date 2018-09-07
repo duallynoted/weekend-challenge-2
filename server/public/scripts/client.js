@@ -2,12 +2,24 @@ console.log('js');
 
 $(document).ready(readyNow);
 
-function readyNow(){
+function readyNow() {
     console.log('JQ');
-    ('.operators').on('click', handleAddButton);
+    $('.operators').on('click', getOperator);
+    $('#equalsButton').on('click', doCalculations)
 
 }
-function doOperations(){
-    console.log('add working');
-    $(this).
+let operation;
+function getOperator() {
+    console.log('operator working');
+    operation = $(this).text()
+}
+
+function doCalculations() {
+    let objectToSend = {
+        number1: $('#firstNumber').val(),
+        number2: $('#lastNumber').val(),
+        operation: operation
+    }
+   console.log(objectToSend);
+    
 }
