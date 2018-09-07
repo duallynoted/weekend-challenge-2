@@ -10,7 +10,6 @@ function readyNow() {
 }
 
 let operation;
-let objectArray = []
 //this will create functionality when the user clicks on any of the operator buttons
 
 function getOperator() {
