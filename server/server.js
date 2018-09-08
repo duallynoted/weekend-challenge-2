@@ -9,7 +9,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 //globals
 const PORT = 5000;
-let totals= [];
+let totals = [];
+let history = { 
+    equation: {}, 
+    sumProduct: '' 
+}
 
 //spin up server
 app.listen(PORT, () => {
@@ -18,6 +22,13 @@ app.listen(PORT, () => {
 app.post('/calculations', (req, res) => {
     console.log('in / POST', req.body);
     doCalculations(req.body.number1, req.body.number2, req.body.operation);
+    history.equation = req.body
+    console.log(history);
+
+    res.send(totals);
+})
+app.get('/calculations', (req, res) => {
+    console.log('in / GET');
     res.send(totals);
 })
 

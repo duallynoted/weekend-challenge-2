@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <script src="scripts/client.js"></script>
     <title>Weekend Project #2</title>
 </head>
+
 <body>
     <h1>Server Side Calculator</h1>
     <input type="number" placeholder="?" id="firstNumber">
@@ -17,11 +19,13 @@
     <button class="operators">/</button>
     <input type="number" placeholder="?" id="lastNumber">
     <button id="equalsButton">=</button>
-    <button class="operators">C</button>
+    <button id="clearButton">C</button>
 
     <h3 id="operatorOutput">Your Calculation: </h3>
-    <div>
-    <h3 id="outputDiv">History</h3>
-    </div>
+    <div id="outPutDiv">
+        <h3 id="messageBanner">History</h3>
+        <ul id="historyOut">
+        </ul>
 </body>
+
 </html>

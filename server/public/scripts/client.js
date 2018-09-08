@@ -6,12 +6,19 @@ function readyNow() {
     console.log('JQ');
     $('.operators').on('click', getOperator);
     $('#equalsButton').on('click', equalsPackage);
+    $('#clearButton').on('click', clearInputs);
+    updateHistory();
 }
 
 let operation;
-let totals = [];
 //this will create functionality when the user clicks on any of the operator buttons
 
+function clearInputs() {
+  console.log('clear working');
+  
+    $('#firstNumber').val('');
+    $('#lastNumber').val('');
+}
 function getOperator() {
     console.log('operator working');
     operation = $(this).text();
@@ -24,19 +31,38 @@ function equalsPackage() {
         operation: operation
     }
     console.log(objectToSend);
-    // doCalculations();
-    $('#operatorOutput').empty();
-    $('#operatorOutput').append('Your Calculation: ' + totals);
     $.ajax({
         method: 'POST',
-        url:'/calculations',
+        url: '/calculations',
         data: objectToSend
     }).then(function (response) {
-        console.log('back from POST with: ', response);        
+        console.log('back from POST with: ', response);
+        $('#operatorOutput').empty();
+        $('#operatorOutput').append('Your Calculation: ' + response[response.length - 1]);
 
-    }).catch (function(error){
-
+    }).catch(function (error) {
+        alert('Error updating messages')
+        console.log('Error:', error);
     })
+}
+function updateHistory (){
+    $.ajax({
+        method: 'GET',
+        url: '/calculations'
+    }).then(function (response) {
+        console.log('back from GET with: ', response);
+        let el = $('#historyOut');
+        // let tempVarHist = 
+    
+        el.empty();
+        // for (let calc of response) {
+            
+        //end for
+
+    }).catch(function (error) {
+        alert('Error updating messages')
+        console.log('Error:', error);
+    })//end ajax
 }
 
 // function doCalculations (){
