@@ -6,7 +6,7 @@ function readyNow() {
     console.log('JQ');
     $('.operators').on('click', getOperator);
     $('#equalsButton').on('click', equalsPackage)
-    doCalculations();
+    
 }
 
 let operation;
@@ -24,15 +24,22 @@ function equalsPackage() {
         operation: operation
     }
     console.log(objectToSend);
+    doCalculations();
     
 }
 function doCalculations (){
     let num1 = $('#firstNumber').val()
     let num2 = $('#lastNumber').val()
     if (operation == '+' ) {
-        answer = num1 + num2;
-        return answer;  
+        answer = parseInt(num1) + parseInt(num2);
+        console.log(answer);          
+    } else if (operation == '-' ) {
+        answer = parseInt(num1) - parseInt(num2);
+        console.log(answer);          
+    } else if (operation == '*' ) {
+        answer = parseInt(num1) * parseInt(num2);
         console.log(answer);
-        
-    }
-}
+    } else if (operation == '/' ) {
+        answer = parseInt(num1) / parseInt(num2);
+        console.log(answer);
+}};  
