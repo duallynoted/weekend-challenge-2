@@ -7,15 +7,15 @@ function readyNow() {
     $('.operators').on('click', getOperator);
     $('#equalsButton').on('click', equalsPackage);
     $('#clearButton').on('click', clearInputs);
-    updateHistory();
+
 }
 
 let operation;
 //this will create functionality when the user clicks on any of the operator buttons
 
 function clearInputs() {
-  console.log('clear working');
-  
+    console.log('clear working');
+
     $('#firstNumber').val('');
     $('#lastNumber').val('');
 }
@@ -38,26 +38,26 @@ function equalsPackage() {
     }).then(function (response) {
         console.log('back from POST with: ', response);
         $('#operatorOutput').empty();
-        $('#operatorOutput').append('Your Calculation: ' + response[response.length - 1]);
-
+        $('#operatorOutput').append('Your Calculation: ' + response[response.length - 1].sumProduct);
+        updateHistory();
     }).catch(function (error) {
         alert('Error updating messages')
         console.log('Error:', error);
     })
 }
-function updateHistory (){
+function updateHistory() {
     $.ajax({
         method: 'GET',
         url: '/calculations'
     }).then(function (response) {
         console.log('back from GET with: ', response);
         let el = $('#historyOut');
-        // let tempVarHist = 
-    
         el.empty();
-        // for (let calc of response) {
-            
-        //end for
+        for (let calc of response) {
+            let tempVar = `<li> ${calc.equation.number1}: ${calc.equation.operation}: ${calc.equation.number2}: ${calc.sumProduct} </li>`;
+            console.log(tempVar);
+            el.append(tempVar);
+        }//end for
 
     }).catch(function (error) {
         alert('Error updating messages')
