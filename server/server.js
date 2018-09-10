@@ -1,4 +1,4 @@
-//requires
+ //requires
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
@@ -52,5 +52,5 @@ function doCalculations(num1, num2, operation) {
         console.log(answer);
         // totals.push(answer);
     };
-    return answer;
+    return answer.toFixed(2);
 }; 

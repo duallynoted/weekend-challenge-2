@@ -7,21 +7,36 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="scripts/vendors/jquery.js"></script>
     <script src="scripts/client.js"></script>
+    <link rel="stylesheet" href="scripts/vendors/styles/bootstrap.min.css">
+    <link rel="stylesheet" href="scripts/vendors/styles/style.css">
     <title>Weekend Project #2</title>
 </head>
 
 <body>
-    <h1>Server Side Calculator</h1>
-    <input type="number" placeholder="?" id="firstNumber">
-    <button class="operators">+</button>
-    <button class="operators">-</button>
-    <button class="operators">*</button>
-    <button class="operators">/</button>
-    <input type="number" placeholder="?" id="lastNumber">
-    <button id="equalsButton">=</button>
-    <button id="clearButton">C</button>
-
+    <div class=container id="header">
+        <div class="col-8">
+            <h1>Server Side Calculator</h1>
+            <div class="container">
+            <input type="number" placeholder="&#8734" id="firstNumber">
+        </div>
+        <div class="container">
+            <div class="btn btn-secondary">
+            <button class="operators">+</button>
+            <button class="operators">-</button>
+            <button class="operators">*</button>
+            <button class="operators">/</button>
+            </div>
+            <div class="container">
+            <input type="number" placeholder="&#8734" id="lastNumber">
+        </div>
+            <button class="btn" id="equalsButton">=</button>
+            <button class="btn btn-danger" id="clearButton">C</button>
+        </div>
+        </div>
+    </div>
+    <div class="container" id="yourCalculation">
     <h3 id="operatorOutput">Your Calculation: </h3>
+</div>
     <div id="outPutDiv">
         <h3 id="messageBanner">History</h3>
         <ul id="historyOut">
