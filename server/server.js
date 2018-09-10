@@ -52,5 +52,6 @@ function doCalculations(num1, num2, operation) {
         console.log(answer);
         // totals.push(answer);
     };
-    return answer.toFixed(2);
+    return answer;
 }; 
+
