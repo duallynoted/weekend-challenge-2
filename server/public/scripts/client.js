@@ -36,7 +36,7 @@ function equalsPackage() {
     }).then(function (response) {
         console.log('back from POST with: ', response);
         $('#operatorOutput').empty();
-        $('#operatorOutput').append('Your Calculation: ' + response[response.length - 1].sumProduct);
+        $('#operatorOutput').append('Your Calculation: ' + response[response.length-1].sumProduct);
         updateHistory();
     }).catch(function (error) {
         alert('Error updating messages')
@@ -53,7 +53,7 @@ function updateHistory() {
         let el = $('#historyOut');
         el.empty();
         for (let calc of response) {
-            let tempVar = `<li> ${calc.equation.number1} ${calc.equation.operation} ${calc.equation.number2}= ${calc.sumProduct} </li>`;
+            let tempVar = `<li> ${calc.number1} ${calc.operation} ${calc.number2}= ${calc.sumProduct} </li>`;
             console.log(tempVar);
             el.append(tempVar);
         }//end for loop 
