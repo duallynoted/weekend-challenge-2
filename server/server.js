@@ -20,12 +20,12 @@ app.listen(PORT, () => {
 })
 app.post('/calculations', (req, res) => {
     console.log('in / POST', req.body);
-    history.sumProduct = doCalculations(req.body.number1, req.body.number2, req.body.operation);
     history = req.body
+    history.sumProduct = doCalculations(req.body.number1, req.body.number2, req.body.operation);
     console.log(history);
     console.log(totals)
     totals.push(history);
-    res.send(totals);
+    res.sendStatus(200);
 })
 app.get('/calculations', (req, res) => {
     console.log('in / GET');
@@ -52,8 +52,7 @@ function doCalculations(num1, num2, operation) {
         // totals.push(answer);
     };
     return answer;
-}; 
+};
 
 
 
-        
